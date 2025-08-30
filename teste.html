@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste Modal</title>
+  <style>
+    body.modal-aberto {
+      overflow: hidden;
+    }
+
+    .modal-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.6);
+      z-index: 999;
+      display: none;
+    }
+
+    .modal {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 1000;
+      display: none;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .botao {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="botao" onclick="openModal()">Mais Informações</button>
+
+  <div id="produto-modal-bg" class="modal-bg"></div>
+  <div id="produto-modal" class="modal">
+    <div class="close" onclick="closeModal()">×</div>
+    <h3>Canon SX540HS</h3>
+    <p>Zoom ótico de 50x, gravação Full HD, Wi-Fi integrado.</p>
+    <a href="#" class="botao">Comprar Agora</a>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('produto-modal-bg').style.display = 'block';
+      document.getElementById('produto-modal').style.display = 'block';
+      document.body.classList.add('modal-aberto');
+    }
+
+    function closeModal() {
+      document.getElementById('produto-modal-bg').style.display = 'none';
+      document.getElementById('produto-modal').style.display = 'none';
+      document.body.classList.remove('modal-aberto');
+    }
+
+    window.onclick = function(event) {
+      if (event.target === document.getElementById('produto-modal-bg')) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+</html>

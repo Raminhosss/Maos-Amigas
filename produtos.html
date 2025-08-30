@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mãos Amigas - Produtos Recomendados</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="imagens/LogoSemFundo1.png" alt="Logotipo Mãos Amigas" style="height: 100px;" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="produtos.html">Produtos Recomendados</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="content">
+    <div class="container">
+      <h2>Produtos Recomendados</h2>
+      <div class="produtos-lista">
+        <div class="produto">
+          <img src="imagens/produtoCanon.png" alt="Canon SX540HS" />
+          <h3>Canon SX540HS</h3>
+          <button class="botao saiba-mais-btn" data-produto="canon-sx540hs">Mais Informações</button>
+        </div>
+        <div class="produto">
+          <img src="imagens/produto2.jpg" alt="Produto 2" />
+          <h3>[Nome do Produto 2]</h3>
+          <button class="botao saiba-mais-btn" data-produto="produto2">Mais Informações</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fundo escurecido -->
+  <div id="produto-modal-bg" class="modal-bg"></div>
+
+  <!-- Modal -->
+  <div id="produto-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="produto-detalhes">
+        <h3 id="produto-titulo"></h3>
+        <div class="swiper">
+          <div class="swiper-wrapper" id="swiper-slides"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <p id="produto-descricao"></p>
+        <a id="produto-link" href="#" class="botao">Comprar Agora</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="imagem-overlay" class="imagem-overlay">
+  <span class="close-overlay">&times;</span>
+  <img src="" alt="Imagem Ampliada" id="imagem-ampliada">
+ </div>
+
+  <footer>
+    <div class="container">
+      <div class="redes-sociais">
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p><a href="mailto:info@maosamigas.com">info@maosamigas.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function openModal(produto) {
+      document.getElementById('produto-modal-bg').style.display = "block";
+    document.getElementById('produto-modal').style.display = "block";
+    document.body.classList.add('modal-aberto');
+
+    const swiperWrapper = document.getElementById('swiper-slides');
+    swiperWrapper.innerHTML = '';
+
+    let imagens = [];
+    let titulo = '';
+    let descricao = '';
+    let link = '#';
+
+    switch (produto) {
+        case 'canon-sx540hs':
+            titulo = 'Canon SX540HS';
+            descricao = 'A minha companheira de confiança para capturar cada detalhe.\nCom um poderoso zoom ótico de 50x, esta câmara permite-me fotografar desde planos próximos até paisagens distantes com nitidez impressionante.\nGrava em Full HD, tem Wi-Fi integrado para partilha rápida e é super confortável de usar — mesmo em dias de trabalho intensos.';
+            link = 'https://bit.ly/47ghWzP';
+            imagens = [
+                'imagens/produtoCanon.png',
+                'imagens/Canon1.jpg',
+                'imagens/Canon2.jpg'
+            ];
+            break;
+
+        case 'produto2':
+            titulo = '[Nome do Produto 2]';
+            descricao = '[Breve descrição do Produto 2]';
+            link = '[Link de Afiliado Produto 2]';
+            imagens = [
+                'imagens/produto2.jpg',
+                'imagens/produto2.jpg',
+                'imagens/produto2.jpg'
+            ];
+            break;
+    }
+
+    document.getElementById('produto-titulo').innerText = titulo;
+    document.getElementById('produto-descricao').innerText = descricao;
+    document.getElementById('produto-link').href = link;
+
+    imagens.forEach(src => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `<a href="#" onclick="abrirImagem('${src}', '${titulo}'); return false;"><img src="${src}" alt="${titulo}" style="height: 200px;"></a>`;
+        swiperWrapper.appendChild(slide);
+    });
+
+    // Inicialize o Swiper depois de adicionar os slides
+    var swiper = new Swiper(".swiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+}
+
+    document.querySelectorAll('.saiba-mais-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        const produto = this.getAttribute('data-produto');
+        openModal(produto);
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', function () {
+      document.getElementById('produto-modal').style.display = "none";
+      document.getElementById('produto-modal-bg').style.display = "none";
+      document.body.classList.remove('modal-aberto');
+    });
+
+    window.addEventListener('click', function (event) {
+      if (event.target === document.getElementById('produto-modal-bg')) {
+        document.getElementById('produto-modal').style.display = "none";
+        document.getElementById('produto-modal-bg').style.display = "none";
+        document.body.classList.remove('modal-aberto');
+      }
+    });
+
+    function abrirImagem(src, alt) {
+    document.getElementById('imagem-ampliada').src = src;
+    document.getElementById('imagem-ampliada').alt = alt;
+    document.getElementById('imagem-overlay').style.display = 'flex';
+}
+
+document.querySelector('.close-overlay').addEventListener('click', function () {
+    document.getElementById('imagem-overlay').style.display = 'none';
+});
+
+window.addEventListener('click', function (event) {
+    const imagemOverlay = document.getElementById('imagem-overlay');
+    if (event.target === imagemOverlay) {
+        imagemOverlay.style.display = 'none';
+    }
+});
+  </script>
+
+</body>
+</html>

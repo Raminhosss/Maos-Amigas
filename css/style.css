@@ -1,0 +1,549 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #224569;
+    color: #fff;
+    padding: 10px 0;
+    animation: slideInDown 0.5s ease-out;
+}
+
+@keyframes slideInDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos para o logotipo */
+.logo-link {
+    display: inline-block; /* Permite definir largura e altura */
+}
+
+.logo {
+    width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Aumenta um pouco no hover */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Hero Section (para a página inicial) */
+.hero {
+    background-color: #e9ecef;
+    padding: 50px 0;
+    text-align: left; /* Alinhar o texto à esquerda */
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    border-radius: 10px; /* Adicionar bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionar uma sombra suave */
+    margin: 20px auto; /* Centralizar a seção e adicionar margem */
+    max-width: 800px; /* Definir uma largura máxima */
+}
+
+.hero .container {
+    padding: 0 30px; /* Adicionar preenchimento interno ao contêiner */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #224569;
+}
+
+.hero h3 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #555;
+    font-style: italic;
+}
+
+.hero p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero .imagens-representativas {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.hero .imagens-representativas img {
+    width: 300px;
+    margin: 0 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.hero .imagens-representativas img:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para a lista de serviços */
+.hero ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.hero ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.hero ul li i {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: #224569;
+    width: 30px; /* Largura fixa para alinhar os ícones */
+    text-align: center; /* Centralizar os ícones */
+}
+
+/* Estilos para o botão "Saber Mais" na página inicial */
+.hero .botao {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #fff;
+    color: #224569;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 30px;
+    display: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero .botao:hover {
+    background-color: #224569;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos específicos para o conteúdo de cada página */
+.content {
+    padding: 50px 0;
+    flex: 1;
+    max-width: 900px; /* Largura máxima para melhor leitura */
+    margin: 0 auto; /* Centralizar a seção */
+}
+
+/* Fundadores (sobre.html) */
+.fundadores {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+    flex-wrap: wrap;
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.fundador {
+    text-align: center;
+    margin-bottom: 30px; /* Adicionar margem inferior para separar os fundadores */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionar uma sombra suave */
+    padding: 20px; /* Adicionar preenchimento interno */
+    border-radius: 10px; /* Adicionar bordas arredondadas */
+    width: 45%;
+}
+
+.fundador img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.fundador img:hover {
+    transform: scale(1.1);
+}
+
+/* Serviços (servicos.html) */
+.servicos-lista {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.servico {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.servico:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.servico i {
+    font-size: 3em;
+    color: #224569;
+    margin-bottom: 10px;
+    transition: transform 0.5s ease;
+}
+
+.servico:hover i {
+    transform: rotate(360deg);
+}
+
+/* Produtos (produtos.html) */
+.produtos-lista {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.produto {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.produto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.produto img:hover {
+    transform: scale(1.05);
+}
+
+.produto h3,
+.produto p {
+    padding: 10px;
+}
+
+.produto .botao {
+    display: block;
+    background-color: #224569;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.produto .botao:hover {
+    background-color: #336699;
+}
+
+/* Contato (contacto.html) */
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 80%;
+    max-width: 400px;
+    transition: border-color 0.3s ease;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+    border-color: #224569;
+}
+
+.formulario-contacto button {
+    background-color: #224569;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.formulario-contacto button:hover {
+    background-color: #336699;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #224569;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    animation: slideInUp 0.5s ease-out;
+    margin-top: auto;
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+footer .redes-sociais a {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .redes-sociais a:hover {
+    color: #ddd;
+    transform: scale(1.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .fundadores,
+    .servicos-lista,
+    .produtos-lista {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servico,
+    .produto {
+        width: 80%;
+    }
+}
+
+/* Fundo escurecido */
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: none;
+}
+
+/* Caixa do modal centralizada */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  z-index: 1000;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  display: none;
+  max-width: 600px;
+  width: 90%;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+/* Conteúdo interno do modal */
+.modal-content {
+  position: relative;
+}
+
+/* Botão de fechar (X) */
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Estilo do botão "Comprar Agora" */
+#produto-link.botao {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #224569;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#produto-link.botao:hover {
+  background-color: #0056b3;
+}
+
+/* Bloqueia o scroll do fundo quando o modal está aberto */
+body.modal-aberto {
+  overflow: hidden;
+}
+
+/* Swiper ajustes */
+.swiper {
+  margin-top: 20px;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+
+/* Estilos para o Swiper */
+.swiper {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    object-fit: cover;
+}
+
+.imagem-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.imagem-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.imagem-overlay .close-overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
